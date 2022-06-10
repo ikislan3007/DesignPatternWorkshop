@@ -19,7 +19,6 @@ public class MagicBoard implements Observable {
         } else {
             throw new IllegalArgumentException("Christmas elf can not be null");
         }
-
     }
 
     @Override
@@ -32,7 +31,7 @@ public class MagicBoard implements Observable {
     @Override
     public void notifyAllMagicElves(String toyName) {
         for (Observer o : elves) {
-            o.receiveNotification();
+            o.receiveUpdate();
         }
     }
 

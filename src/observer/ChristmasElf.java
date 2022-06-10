@@ -1,5 +1,8 @@
 package observer;
 
+import factory.BicycleFactory;
+import factory.DollFactory;
+
 public class ChristmasElf implements Observer {
     private String elfName;
     private Observable magicBoard;
@@ -14,12 +17,19 @@ public class ChristmasElf implements Observer {
     }
 
     @Override
-    public void receiveNotification() {
+    public void receiveUpdate() {
         if (this.magicBoard == null) {
             System.out.println(this.elfName + " can not look at  magic board");
             return;
         }
         System.out.println(this.elfName + " has to bring a " + magicBoard.prepareToy());
+        if (magicBoard.prepareToy().equals("Doll")){
+            DollFactory dollFactory = new DollFactory();
+            dollFactory.createToy();
+        }else {
+            BicycleFactory bicycleFactory = new BicycleFactory();
+            bicycleFactory.createToy();
+        }
     }
 
     @Override

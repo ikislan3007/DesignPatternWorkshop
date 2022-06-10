@@ -1,6 +1,3 @@
-
-import factory.BicycleFactory;
-import factory.DollFactory;
 import command.Command;
 import command.NeedBicycleCommand;
 import command.NeedDollCommand;
@@ -27,16 +24,9 @@ public class Main {
         Command command = null;
         if (toyName.equals(santaInstance.giveMeToy("Doll"))) {
             command = new NeedDollCommand(magicBoard);
-            DollFactory dollFactory = new DollFactory();
-            dollFactory.createToy();
-
-
         }
         if (toyName.equals(santaInstance.giveMeToy("Bicycle"))) {
             command = new NeedBicycleCommand(magicBoard);
-            BicycleFactory bicycleFactory = new BicycleFactory();
-            bicycleFactory.createToy();
-
         }
         command.execute();
     }
